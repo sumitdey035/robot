@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  user: postgres
+  pool: 5
+
+development:
+  <<: *default
+  database: robot_development
+  password: postgres
+
+test:
+  <<: *default
+  database: robot_test
+  password: postgres
