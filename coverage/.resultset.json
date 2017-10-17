@@ -1,6 +1,77 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/qi31/projects/robot/app/models/toy.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        21,
+        null,
+        null,
+        1,
+        6,
+        1,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null,
+        1,
+        7,
+        null,
+        6,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        null,
+        6,
+        4,
+        4,
+        null,
+        null,
+        null,
+        1,
+        6,
+        5,
+        null,
+        null,
+        1,
+        6,
+        5,
+        null,
+        null,
+        1,
+        6,
+        3,
+        1,
+        1,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null
+      ],
+      "/home/qi31/projects/robot/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
       "/home/qi31/projects/robot/app/controllers/application_controller.rb": [
         0,
         null,
@@ -13,12 +84,8 @@
         0,
         0,
         0
-      ],
-      "/home/qi31/projects/robot/app/helpers/application_helper.rb": [
-        0,
-        0
       ]
     },
-    "timestamp": 1508221334
+    "timestamp": 1508233821
   }
 }
