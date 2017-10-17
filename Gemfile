@@ -10,6 +10,14 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'rspec-collection_matchers'
+  gem 'simplecov'
 end
 
 group :development do
