@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  resources :toys, except: [:edit, :update] do
+    member do
+      get :run
+    end
+  end
+  root 'toys#index'
 end

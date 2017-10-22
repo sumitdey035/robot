@@ -12,10 +12,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :test do
   gem 'simplecov'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

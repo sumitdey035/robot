@@ -1,0 +1,23 @@
+<h1>
+  Toys
+  <%= link_to 'Add New', new_toy_path, class: 'btn btn-primary' %>
+</h1>
+
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>x</th>
+    <th>y</th>
+    <th>facing</th>
+  </thead>
+  <tbody>
+    <% @toys.each do |toy| %>
+      <tr>
+        <td><%= link_to toy.name, toy %></td>
+        <td><%= toy.x %></td>
+        <td><%= toy.y %></td>
+        <td><%= toy.facing %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20171017063344) do
   enable_extension "plpgsql"
 
   create_table "toys", force: :cascade do |t|
+    t.string  "name",   null: false
     t.integer "x"
     t.integer "y"
     t.string  "facing"

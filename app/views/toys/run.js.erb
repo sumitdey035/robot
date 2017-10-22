@@ -1,0 +1,6 @@
+<% unless @toy.errors.blank? %>
+  alert('<%= @toy.errors.full_messages.join(',') %>');
+<% else %>
+  $('.position').html('<%= [@toy.x, @toy.y, @toy.facing].join(',') %>');
+  $('#command').val('');
+<% end %>

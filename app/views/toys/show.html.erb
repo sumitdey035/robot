@@ -1,0 +1,33 @@
+<h1><%= @toy.name %></h1>
+<hr>
+<h2>
+  Position(X, Y, Facing):
+  <span class="position">
+    <% if @toy.placed? %>
+      <%= [@toy.x, @toy.y, @toy.facing].join(',') %>
+    <% else %>
+      Not placed yet
+    <% end %>
+  </span>
+</h2>
+
+<hr>
+
+<div class="row">
+  <div class="col-sm-8">
+    <%= form_tag(run_toy_path, remote: true, method: :get, class: 'form-inline') do %>
+      <div class="form-group">
+        <%= text_field_tag :command, nil, class: 'form-control', placeholder: 'Run command', autocomplete: 'off', required: true %>
+      </div>
+      <%= submit_tag 'Run', class: "btn btn-default" %>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <h4>Available Commands</h4>
+    <p>PLACE X,Y,F <smal>(X,Y: 0 to 4, F:(NORTH/EAST/SOUTH/WEST)</smal></p>
+    <p>MOVE</p>
+    <p>LEFT</p>
+    <p>RIGHT</p>
+    <p>REPORT</p>
+  </div>
+</div>
