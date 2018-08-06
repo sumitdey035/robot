@@ -1,0 +1,28 @@
+steps:
+  # First stage is to run the "make" command - which will compile our
+  # application and store the binaries in a `build` folder. We'll upload the
+  # contents of that folder as an Artifact to Buildkite.
+  - command: "make"
+    artifact_paths: "build/*"
+
+  # To prevent the "make test" stage from running before "make" has finished,
+  # we seperate the command with a "wait" step.
+  - wait
+
+  # Before running `make test` we need to download the artifacts created in the
+  # previous step. To do this, we can we the `buildkite-agent artifact
+  # download` command.
+  - command: |
+      mkdir build
+      buildkite-agent artifact download "build/*" "build/"
+      make test
+
+  # By putting commands next to each other, we can make them run in parallel.
+  - command: |
+      mkdir build
+      buildkite-agent artifact download "build/*" "build/"
+      make lint
+
+  - block: "Deploy to production"
+
+  - command: "scripts/deploy.sh"
