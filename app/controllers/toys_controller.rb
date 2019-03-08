@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ToysController < ApplicationController
   def index
     @toys = Toy.all
@@ -36,6 +38,7 @@ class ToysController < ApplicationController
   end
 
   private
+
   def toy_params
     params.require(:toy).permit(:name)
   end

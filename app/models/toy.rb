@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Toy < ActiveRecord::Base
   MAX_X   = 4
   MAX_Y   = 3
-  FACINGS = %w(NORTH EAST SOUTH WEST)
+  FACINGS = %w[NORTH EAST SOUTH WEST].freeze
 
   validates :x, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_X }, allow_blank: true
   validates :y, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_Y }, allow_blank: true
@@ -24,29 +26,29 @@ class Toy < ActiveRecord::Base
 
   def move
     case facing
-      when 'NORTH'
-        new_x = self.x
-        new_y = self.y + 1
-      when 'EAST'
-        new_x = self.x + 1
-        new_y = self.y
-      when 'SOUTH'
-        new_x = self.x
-        new_y = self.y - 1
-      when 'WEST'
-        new_x = self.x - 1
-        new_y = self.y
+    when 'NORTH'
+      new_x = x
+      new_y = y + 1
+    when 'EAST'
+      new_x = x + 1
+      new_y = y
+    when 'SOUTH'
+      new_x = x
+      new_y = y - 1
+    when 'WEST'
+      new_x = x - 1
+      new_y = y
     end
 
     update(x: new_x, y: new_y)
   end
 
   def left
-    update(facing: FACINGS[FACINGS.index(facing) - 1 ]) if valid?
+    update(facing: FACINGS[FACINGS.index(facing) - 1]) if valid?
   end
 
   def right
-    update(facing: FACINGS.reverse[FACINGS.reverse.index(facing) - 1 ]) if valid?
+    update(facing: FACINGS.reverse[FACINGS.reverse.index(facing) - 1]) if valid?
   end
 
   def report
@@ -55,14 +57,14 @@ class Toy < ActiveRecord::Base
   end
 
   def coordinates
-    [x,y]
+    [x, y]
   end
 
   def check_placed
     errors[:base] << 'Toy is not placed yet' unless placed?
   end
 
-  def method_missing(m, *args, &block)
+  def method_missing(m, *args)
     errors[:base] << "There's no command called #{m} #{args.join(',')} here -- please try again."
   end
 end
