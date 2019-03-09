@@ -21,4 +21,4 @@ workflows:
       - one
       - two:
           requires:
-            - test1
+            - one
